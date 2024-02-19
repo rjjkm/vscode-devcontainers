@@ -1,0 +1,23 @@
+FROM centos:7
+
+RUN yum -y update \
+    && yum -y install centos-release-scl https://repo.ius.io/ius-release-el7.rpm \
+    && yum-config-manager --enable rhel-server-rhscl-7-rpms \
+    && yum install -y \
+        devtoolset-11 \
+        autoconf \
+        libtool \
+        pkg-config \
+        git236 \
+        wget \
+        vim-enhanced \
+        zlib-devel \
+        zlib-static \
+        flex bison file \
+    && yum clean all \
+    && rm -rf /var/cache/yum \
+    && echo 'Permanently enabling devtoolset-11' \
+    && echo 'source scl_source enable devtoolset-11' >> /etc/profile.d/enable-devtoolset11.sh \
+    && echo 'Installing CMake from Kitware...' \
+    && wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-Linux-x86_64.sh \
+    && sh cmake-linux.sh -- --skip-license --prefix=/usr/local && rm cmake-linux.sh

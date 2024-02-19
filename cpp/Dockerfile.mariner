@@ -1,0 +1,20 @@
+FROM mcr.microsoft.com/cbl-mariner/base/core:2.0
+
+RUN yum -y update \
+    && yum -y install \
+        util-linux \
+        build-essential \
+        flex bison file \
+        git wget vim mlocate tar procps which gdb unzip \
+        zlib-devel \
+        zlib-static \
+        ccache \
+        gcovr \
+        ca-certificates-microsoft \
+        libbacktrace-static \
+    && yum clean all \
+    && update-ca-trust \
+    && rm -rf /var/cache/tdnf \
+    && echo 'Installing CMake from Kitware...' \
+    && wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-Linux-x86_64.sh \
+    && sh cmake-linux.sh -- --skip-license --prefix=/usr/local && rm cmake-linux.sh
