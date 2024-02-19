@@ -1,8 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 {
-    "name": "CPP Dev",
+    "name": "Dotnet Dev",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "cppdev:latest",
+    "image": "dotnetdev:latest",
 
     "appPort": [
     ],
@@ -15,9 +15,8 @@
             "settings": {},
             "extensions": [
                 "streetsidesoftware.code-spell-checker",
-                "ms-vscode.cpptools-extension-pack",
-                "twxs.cmake",
-                "ms-vscode.cmake-tools"
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.csdevkit"
             ]
         }
     }

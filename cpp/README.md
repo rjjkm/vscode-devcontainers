@@ -12,7 +12,7 @@ Each env is named as `cppdev-<osname>`, for example:
 The script tags the default image as `cppdev`.
 
 ## Open the devcontainer
-1. Open the project is VSCode (may only be necessary one time).
+1. Open the project is VSCode
 1. Select `Ctrl`+`Shift`+`P` Dev Containers: Reopen in Container
 
 ### Run or debug the application
